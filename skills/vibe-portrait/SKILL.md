@@ -389,26 +389,42 @@ This skill produces THREE outputs:
 - Repo URL cached in `~/.vibe-portrait-repo` for future syncs
 - Template provided in `repo-template/` within this skill
 
+## Privacy rules (CRITICAL — read before generating ANY output)
+
+All outputs of VibePortrait (HTML, persona skill, analysis JSON, repo README) are potentially shareable. Apply these rules to **every file you write**:
+
+### What MUST be redacted
+- **API keys, tokens, passwords, secrets** → replace with `[REDACTED]`
+- **URLs containing credentials** (tokens in query strings, auth headers) → redact the credential portion
+- **File paths exposing personal info** (`/home/username/`, `/Users/realname/`) → replace with `~/` or `<home>/`
+- **Email addresses, phone numbers, IPs** → redact unless the user explicitly consents
+- **Private repo URLs, internal hostnames** → redact
+
+### What MUST NOT appear in persona skills
+- **No verbatim chat messages.** Persona reference files must contain only abstracted descriptions. "Values data-driven decisions" is OK. "你是傻逼吗" is NOT.
+- **No project names, company names, or colleague names** from the user's conversations
+- **No financial data** (account balances, trading strategies, PnL numbers)
+- **No credentials or deployment details** (server IPs, Docker configs, database names)
+
+### What is OK
+- Abstracted personality traits, thinking patterns, communication style descriptions
+- Generic domain labels ("ML/AI", "Web", "Systems/Infra")
+- Tool/framework names (public knowledge: "PyTorch", "Docker", "React")
+- MBTI scores, radar scores, rating tier (all computed, not raw data)
+
+### Before pushing to git repo
+Scan all files being committed for the redaction patterns above. If any slip through, fix before pushing.
+
 ## Anti-patterns
 
-- **Do not fabricate data.** If you can't determine a signal, use a neutral score (50) and note the uncertainty.
-- **Do not read files beyond conversation history.** Do not read source code, private documents, or SSH keys.
-- **Do not make the portrait mean-spirited.** Even low ratings should be motivating with clear growth paths.
-- **Do not skip the template.** Always read and use `templates/portrait.html` as the base.
-- **Do not read all history lines.** Use the sampling strategy to stay within context limits.
-- **Do not include raw API keys, tokens, or passwords in quotes.** Replace with `[REDACTED]`.
+- **Do not fabricate data.** If you can't determine a signal, use a neutral score (50).
+- **Do not read files beyond conversation history.** No source code, private documents, SSH keys.
+- **Do not skip the template.** Always use `templates/portrait.html` as the base.
+- **Do not read all history lines in Quick mode.** Use the sampling strategy.
 
-## Quick reference
+## Reference files
 
-| Reference file | Purpose |
-|----------------|---------|
-| `references/analysis-framework.md` | Detailed signal extraction guide for 6 dimensions |
-| `references/mbti-mapping.md` | MBTI axis mapping rules and scoring |
-| `references/famous-matching.md` | Famous person database (~30 figures) and matching algorithm |
-| `references/rating-rubric.md` | Six-tier developer rating criteria (materialist methodology) |
-| `references/persona-skill-template.md` | Persona SKILL.md generation template and rules |
-| `templates/portrait.html` | HTML template with PORTRAIT_DATA placeholder |
-| `repo-template/` | Template for user's private portrait repo |
+`references/analysis-framework.md` · `references/mbti-mapping.md` · `references/famous-matching.md` · `references/rating-rubric.md` · `references/persona-skill-template.md` · `templates/portrait.html` · `repo-template/`
 
 ## Update (incremental analysis)
 

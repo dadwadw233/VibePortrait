@@ -1,5 +1,7 @@
 # Persona Skill Generation
 
+> **PRIVACY FIRST**: Persona skills are designed to be shareable. Every file you generate must be free of personal data — no verbatim chat messages, no project/company names, no credentials, no file paths, no financial data. Only abstracted personality descriptions. See the Privacy Rules in SKILL.md.
+
 After analyzing the user, generate a **multi-file** persona skill that captures each dimension in its own reference document.
 
 ## Output Structure
