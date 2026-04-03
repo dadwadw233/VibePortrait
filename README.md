@@ -270,6 +270,4 @@ Requirements / 需要: `gh` CLI installed and authenticated / 已安装并登录
 
 **每一次对话都是你的进化轨迹。看见自己，分享自己，成为更强的自己。**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 </div>
