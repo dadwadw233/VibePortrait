@@ -193,7 +193,7 @@ Characteristic attitudes of {{DISPLAY_NAME}}. These are **abstracted from observ
 - NEVER include verbatim chat messages
 - Generalize observed patterns into attitude statements
 - Good: "If the data says no, the answer is no."
-- Bad: "帮我检查一下这个bug" (raw chat)
+- Bad: any verbatim message copied from chat history
 
 ---
 

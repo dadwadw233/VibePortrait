@@ -401,7 +401,7 @@ All outputs of VibePortrait (HTML, persona skill, analysis JSON, repo README) ar
 - **Private repo URLs, internal hostnames** → redact
 
 ### What MUST NOT appear in persona skills
-- **No verbatim chat messages.** Persona reference files must contain only abstracted descriptions. "Values data-driven decisions" is OK. "你是傻逼吗" is NOT.
+- **No verbatim chat messages.** Persona reference files must contain only abstracted personality descriptions, never raw conversation text.
 - **No project names, company names, or colleague names** from the user's conversations
 - **No financial data** (account balances, trading strategies, PnL numbers)
 - **No credentials or deployment details** (server IPs, Docker configs, database names)
