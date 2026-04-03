@@ -205,11 +205,22 @@ const PORTRAIT_DATA = {
     strengthHighlights: [],
     growthAreas: []
   },
-  famousPerson: {
-    name: "...",
-    emoji: "...",
-    reason: "...",
-    sharedTraits: []
+  famousMatch: {
+    technical: {
+      name: "...", emoji: "...",
+      dimension: "Technical Spirit", dimensionZh: "技术灵魂",
+      reason: "...", sharedTraits: []
+    },
+    strategic: {
+      name: "...", emoji: "...",
+      dimension: "Strategic Mind", dimensionZh: "思维内核",
+      reason: "...", sharedTraits: []
+    },
+    communication: {
+      name: "...", emoji: "...",
+      dimension: "Communication Soul", dimensionZh: "表达人格",
+      reason: "...", sharedTraits: []
+    }
   },
   communication: {
     languages: {},

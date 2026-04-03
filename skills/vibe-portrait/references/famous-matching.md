@@ -4,10 +4,28 @@ Match the user's personality profile against a curated database of figures from 
 
 ## Matching Algorithm
 
-1. For each candidate, compute overlap across 5 trait dimensions (communication, technical/intellectual focus, decision style, ambition level, collaboration approach)
-2. Each dimension is scored 0-100 for the user and each candidate
-3. The candidate with the smallest total distance wins
-4. If the top two candidates are within 10% of each other, mention both
+Match the user across **three independent dimensions** — each dimension picks a DIFFERENT person:
+
+### 1. Technical Spirit (技术灵魂)
+Who does the user resemble in **how they build and what they build**?
+- Weighted heavily on: technical focus, tool mastery, domain breadth/depth
+- Pick from: Modern Technologists + Creators categories primarily
+
+### 2. Strategic Mind (思维内核)
+Who does the user resemble in **how they think and decide**?
+- Weighted heavily on: decision style, risk tolerance, planning vs exploring, evidence threshold
+- Pick from: Philosophers & Strategists + Scientists categories primarily
+
+### 3. Communication Soul (表达人格)
+Who does the user resemble in **how they communicate and collaborate**?
+- Weighted heavily on: communication directness, feedback style, collaboration approach, leadership style
+- Pick from: ALL categories — anyone can match on communication
+
+**Critical rules:**
+- The three matches MUST be three DIFFERENT people. Never repeat.
+- Each dimension should feel like a genuinely different facet of the user's personality.
+- Do NOT default to the same tech figure for all three. A developer can code like Carmack, think like 孙子, and communicate like Linus — that's the point.
+- If the user's history is heavily technical, the Strategic Mind match should deliberately look OUTSIDE tech for contrast.
 
 ---
 
@@ -319,22 +337,37 @@ Match the user's personality profile against a curated database of figures from 
 
 ```json
 {
-  "name": "Person Name",
-  "emoji": "🔬",
-  "reason": "2-3 sentence explanation of why this match fits the user, referencing specific observed traits.",
-  "sharedTraits": ["trait-1", "trait-2", "trait-3", "trait-4"]
+  "technical": {
+    "name": "Person Name",
+    "emoji": "🚀",
+    "dimension": "Technical Spirit",
+    "dimensionZh": "技术灵魂",
+    "reason": "1-2 sentences on WHY this person matches technically.",
+    "sharedTraits": ["trait-1", "trait-2", "trait-3"]
+  },
+  "strategic": {
+    "name": "Different Person",
+    "emoji": "🪶",
+    "dimension": "Strategic Mind",
+    "dimensionZh": "思维内核",
+    "reason": "1-2 sentences on WHY this person matches in thinking/decision style.",
+    "sharedTraits": ["trait-1", "trait-2", "trait-3"]
+  },
+  "communication": {
+    "name": "Yet Another Person",
+    "emoji": "🐧",
+    "dimension": "Communication Soul",
+    "dimensionZh": "表达人格",
+    "reason": "1-2 sentences on WHY this person matches in communication style.",
+    "sharedTraits": ["trait-1", "trait-2", "trait-3"]
+  }
 }
 ```
 
-## Matching Tips
+## Anti-Bias Rules
 
-- Weight communication style heavily — it's the most observable signal
-- Technical focus should match at least partially
-- Decision style is a strong differentiator between similar candidates
-- Do NOT default to tech figures if the user's patterns better match a philosopher or scientist
-- A user who plans exhaustively before acting may match 诸葛亮 better than any Silicon Valley figure
-- A user who insists on "知行合一" (learn by doing) may match 王阳明
-- A user who seeks minimalism and natural order may match 老子
-- A user who builds everything from scratch alone may match Bellard or Tesla
-- A user who systematically classifies and organizes everything may match Aristotle
-- Cross-cultural matching is encouraged — the best match is the most accurate, not the most familiar
+- **Never match all three dimensions to the same person or even the same category.** If "Technical Spirit" picks a modern tech figure, "Strategic Mind" should pick from a different category.
+- **Carmack is not the default.** Many developers are cross-domain — that alone is not enough for a Carmack match. Look at specific traits: does the user obsessively optimize performance? Do they work alone on deep problems? If not, pick someone else.
+- **Philosophers and strategists are underused.** If the user shows evidence-driven decision making, consider 孙子. If they plan exhaustively with contingencies, consider 诸葛亮. If they insist on learning by doing, consider 王阳明.
+- **Scientists should match on methodology, not topic.** Feynman matches playful anti-pretension, not "does physics". Turing matches attacking unsolvable problems, not "does crypto".
+- Cross-cultural matching is encouraged — the best match is the most accurate, not the most familiar.

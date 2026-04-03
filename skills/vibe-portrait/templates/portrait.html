@@ -310,11 +310,25 @@ const PORTRAIT_DATA = {
     strengthHighlights: ["Clear requirement articulation", "Good debugging instincts", "Broad tool awareness"],
     growthAreas: ["Deeper specialization in one domain", "More systematic testing habits"]
   },
-  famousPerson: {
-    name: "Steve Wozniak",
-    emoji: "🛠️",
-    reason: "Like Woz, you build for the joy of building. Your enthusiasm is contagious, you share credit freely, and you prefer hands-on tinkering over grand strategic plans.",
-    sharedTraits: ["tinkerer", "playful", "builder-for-joy", "generous-collaborator"]
+  famousMatch: {
+    technical: {
+      name: "Steve Wozniak", emoji: "🛠️",
+      dimension: "Technical Spirit", dimensionZh: "技术灵魂",
+      reason: "Like Woz, you build for the joy of building — hands-on tinkering over grand strategic plans.",
+      sharedTraits: ["tinkerer", "playful", "builder-for-joy"]
+    },
+    strategic: {
+      name: "Richard Feynman", emoji: "🥁",
+      dimension: "Strategic Mind", dimensionZh: "思维内核",
+      reason: "You share Feynman's playful curiosity and insistence on understanding from first principles rather than memorizing formulas.",
+      sharedTraits: ["first-principles", "anti-pretension", "curiosity-driven"]
+    },
+    communication: {
+      name: "Guido van Rossum", emoji: "🐍",
+      dimension: "Communication Soul", dimensionZh: "表达人格",
+      reason: "Thoughtful and community-minded in communication, preferring clarity and one obvious way to do things.",
+      sharedTraits: ["clear-communicator", "pragmatic", "community-builder"]
+    }
   },
   communication: {
     languages: { "English": 85, "Spanish": 10, "Mixed": 5 },
@@ -419,15 +433,10 @@ const PORTRAIT_DATA = {
       </div>
     </div>
 
-    <!-- ── 5. FAMOUS PERSON MATCH CARD ── -->
+    <!-- ── 5. FAMOUS MATCH CARD (3 dimensions) ── -->
     <div class="glass p-6">
       <div class="card-title" data-i18n="youRemindMeOf"> You Remind Me Of</div>
-      <div class="flex items-center gap-4 mb-4">
-        <div class="text-5xl" id="famous-emoji"></div>
-        <div class="text-2xl font-bold text-slate-100" id="famous-name"></div>
-      </div>
-      <p class="text-slate-400 text-sm leading-relaxed mb-4" id="famous-reason"></p>
-      <div class="flex flex-wrap gap-2" id="famous-traits"></div>
+      <div class="space-y-4" id="famous-matches"></div>
     </div>
 
   </div><!-- end 2-col grid -->
@@ -555,7 +564,7 @@ const PORTRAIT_DATA = {
     tier:             { en: 'Tier', zh: '等级' },
     strengths:        { en: 'Strengths', zh: '优势' },
     growthAreas:      { en: 'Growth Areas', zh: '成长空间' },
-    youRemindMeOf:    { en: 'You Remind Me Of', zh: '你最像的名人' },
+    youRemindMeOf:    { en: 'You Remind Me Of', zh: '你的三重灵魂' },
     commStyle:        { en: 'Communication Style', zh: '沟通风格' },
     directness:       { en: 'Directness', zh: '直接度' },
     avgCharsMsg:      { en: 'avg chars / msg', zh: '平均字符/条' },
@@ -758,11 +767,34 @@ const PORTRAIT_DATA = {
   appendBadges('rating-strengths', D.rating.strengthHighlights, 'badge-green');
   appendBadges('rating-growth',    D.rating.growthAreas,         'badge-blue');
 
-  /* ── 5. Famous person ── */
-  el('famous-emoji').textContent   = D.famousPerson.emoji;
-  el('famous-name').textContent    = D.famousPerson.name;
-  el('famous-reason').textContent  = D.famousPerson.reason;
-  appendBadges('famous-traits', D.famousPerson.sharedTraits, 'badge-purple');
+  /* ── 5. Famous matches (3 dimensions) ── */
+  const famousContainer = el('famous-matches');
+  // Support both old format (famousPerson) and new format (famousMatch)
+  const fm = D.famousMatch || (D.famousPerson ? { technical: D.famousPerson, strategic: null, communication: null } : {});
+  const dimOrder = ['technical', 'strategic', 'communication'];
+  const dimColors = { technical: 'badge-amber', strategic: 'badge-green', communication: 'badge-blue' };
+
+  dimOrder.forEach(key => {
+    const match = fm[key];
+    if (!match) return;
+    const dimLabel = L === 'zh' ? (match.dimensionZh || match.dimension) : match.dimension;
+    const card = document.createElement('div');
+    card.className = 'glass-darker p-4 rounded-xl';
+    card.innerHTML = `
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-3xl">${match.emoji}</span>
+        <div>
+          <div class="text-lg font-bold text-slate-100">${match.name}</div>
+          <span class="badge ${dimColors[key]} text-xs">${dimLabel}</span>
+        </div>
+      </div>
+      <p class="text-slate-400 text-sm leading-relaxed mb-2">${match.reason}</p>
+      <div class="flex flex-wrap gap-1" id="famous-traits-${key}"></div>
+    `;
+    famousContainer.appendChild(card);
+    const traitsEl = card.querySelector(`#famous-traits-${key}`);
+    (match.sharedTraits || []).forEach(t => traitsEl.appendChild(badge(t, 'badge-gray')));
+  });
 
   /* ── 6. Communication ── */
   // Language doughnut

@@ -148,7 +148,9 @@
     <rect width="185" height="72" rx="12" fill="#101816" opacity="0.95"/>
     <rect width="185" height="72" rx="12" stroke="#10b981" stroke-width="0.5" fill="none" opacity="0.3"/>
     <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1">FAMOUS MATCH</text>
-    <text x="14" y="52" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="url(#accent4)">John Carmack</text>
+    <text x="14" y="42" font-family="system-ui, sans-serif" font-size="10" fill="#fcd34d">🚀 Tech: Carmack</text>
+    <text x="14" y="55" font-family="system-ui, sans-serif" font-size="10" fill="#6ee7b7">🪶 Mind: 诸葛亮</text>
+    <text x="14" y="68" font-family="system-ui, sans-serif" font-size="10" fill="#5eead4">🐧 Comm: Linus</text>
   </g>
 
   <!-- Card 5: Communication -->
