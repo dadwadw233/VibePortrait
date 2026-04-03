@@ -129,21 +129,34 @@ VibePortrait generates a skill that captures: thinking patterns, decision framew
 
 **No raw chat messages are included** — only abstracted mindset markers.
 
-```
-think like me                    # Your persona / 你的人格
-像我一样思考这个问题
-think like linus-torvalds        # Community persona / 社区人格
-像诸葛亮一样设计这个方案
+```bash
+# Activate personas / 激活人格
+think like me                        # Your own / 你自己的
+像马斯克一样思考这个问题               # Community / 社区人格
+think like linus-torvalds            # By ID
 
-install persona from <github-url>  # Install someone's persona / 安装他人人格
-list personas                      # See what you have / 查看已安装
+# Manage / 管理
+update my portrait                   # Incremental update (only new msgs) / 增量更新
+install persona from <github-url>    # Install from GitHub / 安装
+list personas                        # See installed / 查看已安装
+remove persona <id>                  # Uninstall / 删除
 ```
 
 ```
 ~/.claude/skills/vibe-portrait-personas/
-├── me/            ← yours (auto-generated)
-├── jane-doe/      ← installed from GitHub
-└── zhuge-liang/   ← installed from community
+├── me/                        ← yours (auto-generated, multi-file)
+│   ├── SKILL.md
+│   ├── portrait-meta.json     ← timestamps for incremental updates
+│   └── references/
+│       ├── thinking-patterns.md
+│       ├── decision-framework.md
+│       ├── communication-style.md
+│       ├── engineering-philosophy.md
+│       └── mindset-markers.md
+├── elon-musk/                 ← installed from GitHub
+│   └── ...
+└── zhuge-liang/               ← installed from community
+    └── ...
 ```
 
 ---

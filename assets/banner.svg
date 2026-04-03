@@ -216,8 +216,8 @@
     <rect width="185" height="72" rx="12" fill="#101816" opacity="0.95"/>
     <rect width="185" height="72" rx="12" stroke="#10b981" stroke-width="0.5" fill="none" opacity="0.3"/>
     <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1">PERSONA SKILL</text>
-    <text x="14" y="46" font-family="'SF Mono', 'Fira Code', monospace" font-size="10" fill="#6ee7b7">"think like me"</text>
-    <text x="14" y="62" font-family="'SF Mono', 'Fira Code', monospace" font-size="10" fill="#6ee7b7">"像我一样思考"</text>
+    <text x="14" y="46" font-family="'SF Mono', 'Fira Code', monospace" font-size="10" fill="#6ee7b7">"think like elon-musk"</text>
+    <text x="14" y="62" font-family="'SF Mono', 'Fira Code', monospace" font-size="10" fill="#6ee7b7">"像马斯克一样思考"</text>
   </g>
 
   <!-- Bottom fade -->

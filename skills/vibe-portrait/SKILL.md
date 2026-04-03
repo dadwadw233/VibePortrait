@@ -1,18 +1,30 @@
 ---
 name: "vibe-portrait"
-description: "Analyze the user's conversation history with AI coding assistants and generate a beautiful HTML personality portrait plus a persona skill. Use when the user wants to see their developer personality profile, generate their persona skill, MBTI-like type, famous person match, developer rating, or coding style analysis. Also use when the user says 'generate my portrait', 'analyze my personality', 'what kind of developer am I', 'think like XXX', '像XXX一样思考', or wants to import/merge history from another machine."
+description: "Developer personality portrait generator. Supports subcommands: (1) 'generate my portrait' / 'analyze my personality' — full analysis; (2) 'update my portrait' — incremental update since last analysis; (3) 'install persona from <url>' — install community persona from GitHub; (4) 'list personas' / '我安装了哪些人格' — show installed; (5) 'remove persona <id>' — uninstall; (6) 'think like <name>' / '像<name>一样思考' — activate a persona. Also triggers on 'vibe-portrait', 'what kind of developer am I'."
 ---
 
 # Vibe Portrait
 
-Generate a developer personality portrait from your AI conversation history.
+Developer personality portrait generator with subcommands.
 
-This skill reads your Claude Code / Codex conversation history, analyzes your communication patterns, technical depth, decision-making style, and collaboration behavior, then produces:
+## Command routing
 
-1. **A self-contained HTML portrait page** with visual charts and personality insights
-2. **A persona skill file** that captures your thinking patterns, methodology, and philosophy — loadable by any AI agent to "think like you"
+Determine which subcommand the user wants based on their message:
 
-It also supports importing history from multiple machines and loading community persona skills.
+| Trigger | Action |
+|---------|--------|
+| "generate my portrait" / "analyze my personality" / just "/vibe-portrait" | → **Generate** (full analysis, Steps 0-8) |
+| "update my portrait" / "update portrait" / "更新我的画像" | → **Update** (incremental, see Update section) |
+| "install persona from \<url\>" / "安装人格 \<url\>" | → **Install** (see Persona Management) |
+| "list personas" / "我安装了哪些人格" | → **List** (see Persona Management) |
+| "remove persona \<id\>" / "删除人格 \<id\>" | → **Remove** (see Persona Management) |
+| "think like \<name\>" / "像\<name\>一样思考" | → **Activate** (load the persona skill, not handled here — Claude auto-activates from the installed skill) |
+
+If ambiguous, ask the user which action they want.
+
+---
+
+## Generate (full analysis)
 
 ## Step 0: Ask analysis mode
 
@@ -227,22 +239,26 @@ const PORTRAIT_DATA = {
 Read the persona skill template:
 → `references/persona-skill-template.md`
 
-Generate a SKILL.md file that captures the user's personality as a loadable AI persona. This skill, when activated, allows any AI agent to "think like" the analyzed user.
+Generate a **multi-file** persona skill. Read the template for the full structure:
+→ `references/persona-skill-template.md`
 
-**Derive the persona content from the analysis in Steps 2-3.** Specifically:
-- **Thinking Patterns**: from technical depth analysis + decision patterns
-- **Decision Framework**: from decision patterns + collaboration style
-- **Communication Style**: from communication style analysis
-- **Engineering Philosophy**: from technical depth + breadth + collaboration patterns
-- **Anti-Patterns**: invert the strongest observed preferences
-- **Signature Phrases**: from the collected quotes
+Create the following files under `~/.claude/skills/vibe-portrait-personas/me/`:
 
-**Write the persona skill to:**
 ```
-~/.claude/skills/vibe-portrait-personas/me/SKILL.md
+me/
+├── SKILL.md                        # Entry point (~80 lines)
+├── portrait-meta.json              # Timestamps for incremental updates
+└── references/
+    ├── thinking-patterns.md        # From: technical depth + decision patterns
+    ├── decision-framework.md       # From: decision patterns + collaboration style
+    ├── communication-style.md      # From: communication style analysis
+    ├── engineering-philosophy.md   # From: technical depth + breadth + anti-patterns
+    └── mindset-markers.md          # Abstracted attitudes (NO raw quotes)
 ```
 
-Create the directory if it doesn't exist. The `me/` path is reserved for the user's own persona. Community/downloaded personas go in sibling directories (e.g., `~/.claude/skills/vibe-portrait-personas/john-carmack/SKILL.md`).
+**`portrait-meta.json` is critical** — it stores `lastMessageIndex` (line count of history.jsonl at analysis time) and `updatedAt` timestamp. These enable the **update** subcommand to do incremental analysis later.
+
+Create directories if they don't exist. `me/` is reserved for the user's own persona.
 
 ## Step 6: Write output files
 
@@ -394,78 +410,79 @@ This skill produces THREE outputs:
 | `templates/portrait.html` | HTML template with PORTRAIT_DATA placeholder |
 | `repo-template/` | Template for user's private portrait repo |
 
-## Persona skill management
+## Update (incremental analysis)
 
-### Installing a community persona from GitHub
+When the user says "update my portrait" / "更新我的画像":
 
-When the user says "install persona from {URL}" or provides a GitHub link to someone else's portrait repo, follow this process:
+1. Read `~/.claude/skills/vibe-portrait-personas/me/portrait-meta.json`.
+   - If it doesn't exist, tell the user to run a full generate first.
+2. Get `lastMessageIndex` from the meta file.
+3. Count current lines in `~/.claude/history.jsonl`.
+4. If no new messages since last analysis, tell the user "Portrait is up to date."
+5. Otherwise, read only the **new messages** (from line `lastMessageIndex+1` to end).
+6. Analyze the new messages across the same 6 dimensions.
+7. **Merge** with existing analysis: weighted average of scores by message count (old weight = `totalMessagesAnalyzed`, new weight = new message count).
+8. Regenerate: HTML portrait, all persona reference files, portrait-meta.json (update `updatedAt`, `lastMessageIndex`, `totalMessagesAnalyzed`).
+9. If portrait repo exists, push the update.
 
-1. **Validate the URL.** It should be a GitHub repo URL (e.g., `https://github.com/someone/my-vibe-portrait`).
+This is much cheaper than a full re-analysis — typically only processes dozens of new messages.
 
-2. **Extract the persona skill.** The target repo follows the portrait repo template structure — the persona skill is at `me/SKILL.md`.
+---
+
+## Persona Management
+
+### Install from GitHub
+
+Trigger: "install persona from \<url\>"
 
 ```bash
-REPO_URL="<the provided GitHub URL>"
 TEMP_DIR=$(mktemp -d)
-git clone --depth 1 "$REPO_URL" "$TEMP_DIR" 2>/dev/null
-```
-
-3. **Determine the person-id.** Read the SKILL.md frontmatter `name` field to extract the persona identifier. If it says `persona-jane-doe`, the person-id is `jane-doe`. Alternatively, infer from the repo owner's GitHub username as a fallback.
-
-4. **Install to the community personas directory:**
-
-```bash
-PERSON_ID="<extracted person-id>"
-TARGET_DIR=~/.claude/skills/vibe-portrait-personas/$PERSON_ID
-mkdir -p "$TARGET_DIR"
-cp "$TEMP_DIR/me/SKILL.md" "$TARGET_DIR/SKILL.md"
+git clone --depth 1 "<url>" "$TEMP_DIR"
+PERSON_ID=$(grep -m1 'personaId' "$TEMP_DIR/me/portrait-meta.json" | sed 's/.*: *"\(.*\)".*/\1/' )
+# Fallback: infer from GitHub username
+TARGET=~/.claude/skills/vibe-portrait-personas/$PERSON_ID
+cp -R "$TEMP_DIR/me" "$TARGET"
 rm -rf "$TEMP_DIR"
 ```
 
-5. **Confirm to the user:**
-   - Where the persona was installed
-   - How to invoke it: `"think like {person-id}"` or `"像{person-id}一样思考"`
-   - Remind them to review the SKILL.md content if they have security concerns
+Confirm: where installed + how to invoke (`think like {person-id}`).
 
-### Listing installed personas
+### List
 
-When the user asks "what personas do I have" / "我安装了哪些人格" / "list personas":
+Trigger: "list personas" / "我安装了哪些人格"
 
 ```bash
 ls ~/.claude/skills/vibe-portrait-personas/
 ```
 
-List each directory with a brief summary (read the first few lines of each SKILL.md for the name and description).
+For each directory, read `portrait-meta.json` and show: name, MBTI type, rating, last updated.
 
-### Removing a community persona
+### Remove
 
-When the user asks to remove a persona:
+Trigger: "remove persona \<id\>"
 
 ```bash
-rm -rf ~/.claude/skills/vibe-portrait-personas/{person-id}
+rm -rf ~/.claude/skills/vibe-portrait-personas/<id>
 ```
+
+Confirm before deleting. Refuse to delete `me/` — tell user to run generate to overwrite instead.
 
 ### Directory layout
 
 ```
 ~/.claude/skills/vibe-portrait-personas/
-├── me/                  # YOUR persona (auto-generated by VibePortrait)
-│   └── SKILL.md
-├── jane-doe/            # Installed from someone's portrait repo
-│   └── SKILL.md
-└── zhuge-liang/         # Installed from community
-    └── SKILL.md
-```
-
-- `me/` is always YOUR own persona. It is regenerated each time you run VibePortrait.
-- All other directories are community personas installed from external GitHub repos.
-- This separation is intentional and must not be changed.
-
-### Invocation
-
-Any installed persona can be activated with:
-- `"think like {person-id}"` / `"像{person-id}一样思考"`
-- `"what would {person-id} do"` / `"{person-id}会怎么做"`
-- `"channel {person-id}"` / `"用{person-id}的方式来做"`
-
-For your own persona: `"think like me"` / `"像我一样思考"`
+├── me/                        ← yours (multi-file, auto-generated)
+│   ├── SKILL.md
+│   ├── portrait-meta.json
+│   └── references/
+│       ├── thinking-patterns.md
+│       ├── decision-framework.md
+│       ├── communication-style.md
+│       ├── engineering-philosophy.md
+│       └── mindset-markers.md
+├── jane-doe/                  ← installed from GitHub
+│   ├── SKILL.md
+│   ├── portrait-meta.json
+│   └── references/...
+└── zhuge-liang/               ← installed from community
+    └── ...
