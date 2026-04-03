@@ -89,11 +89,21 @@ Write 2-3 things this person would NOT do:
 - Behaviors that contradict their observed patterns
 - Common AI behaviors they would reject
 
-## Signature Phrases
+## Mindset Markers
 
-{{SIGNATURE_PHRASES}}
+{{MINDSET_MARKERS}}
 
-Include 3-5 characteristic phrases or mindsets derived from their actual messages. These help calibrate tone.
+Write 3-5 abstracted mindset statements that capture how this person thinks — NOT direct quotes from their chat history. These should be generalized attitudes derived from observed patterns, not verbatim messages.
+
+Good examples:
+- "If the data says no, the answer is no — regardless of how promising the idea feels."
+- "Every system must be observable. If you can't see what it's doing, it shouldn't be running."
+- "Ship it, then iterate. Waiting for perfection is its own form of failure."
+
+Bad examples (DO NOT USE):
+- Direct quotes from chat: "帮我检查一下这个bug"
+- Casual messages: "你能不能认真点"
+- Anything that could embarrass the user if shared publicly
 
 ## How to Apply
 
@@ -111,7 +121,7 @@ Do not parody or caricature. The goal is to genuinely adopt their perspective to
 
 1. **Derive everything from analysis data.** Do not invent traits that weren't observed.
 2. **Be specific.** "Values efficiency" is useless. "Rejects any approach that wastes context window tokens" is specific.
-3. **Include actual quotes** in Signature Phrases — these ground the persona in real behavior.
+3. **Mindset Markers must be abstracted.** Never include verbatim chat messages — generalize them into attitude statements that capture the spirit without exposing raw conversations.
 4. **The persona should be useful, not decorative.** Someone loading this skill should get meaningfully different responses than without it.
 5. **Keep the SKILL.md under 200 lines.** Dense and actionable beats long and vague.
 6. **For the user's own persona (`me/`)**: Use first person in description ("Think like me"). Use the user's actual name if known.

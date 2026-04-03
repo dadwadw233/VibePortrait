@@ -5,269 +5,191 @@
 <br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-7C3AED?logo=anthropic&logoColor=white)](https://claude.ai/claude-code)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-14b8a6?logo=anthropic&logoColor=white)](https://claude.ai/claude-code)
 [![Codex](https://img.shields.io/badge/Codex-skill-10a37f?logo=openai&logoColor=white)](https://github.com/openai/codex)
 [![GitHub stars](https://img.shields.io/github/stars/dadwadw233/VibePortrait?style=social)](https://github.com/dadwadw233/VibePortrait)
 
-[English](#-what-is-vibeportrait) · [中文](#-vibeportrait-是什么)
-
-<br>
-
-<img src="https://img.shields.io/badge/MBTI-16_Types-8B5CF6?style=for-the-badge" alt="MBTI"> <img src="https://img.shields.io/badge/Famous_Match-30_Figures-3B82F6?style=for-the-badge" alt="Famous"> <img src="https://img.shields.io/badge/Rating-6_Tiers-F59E0B?style=for-the-badge" alt="Rating"> <img src="https://img.shields.io/badge/i18n-中文_English-10B981?style=for-the-badge" alt="i18n">
+[English](#what-is-vibeportrait) · [中文](#vibeportrait-是什么)
 
 </div>
 
 ---
 
-## 🌍 What is VibePortrait?
+## What is VibePortrait?
 
-VibePortrait is a **skill for Claude Code and Codex** that reads your AI conversation history and generates:
+A skill for **Claude Code** and **Codex**. It reads your conversation history and generates:
 
-1. **🖼️ An HTML personality portrait** — a stunning, self-contained page with visual charts, MBTI type, capability radar, developer rating, and famous person match
-2. **🧠 A persona skill** — a SKILL.md that captures your thinking patterns, so any AI can "think like you"
-3. **📸 An exportable image** — one-click PNG export for sharing on social media
-4. **🔄 Multi-machine sync** — a private GitHub repo that keeps your portrait in sync across all your dev machines
+- **🖼️ HTML Portrait** — self-contained page with MBTI type, radar chart, developer rating, famous match, and more
+- **🧠 Persona Skill** — a SKILL.md capturing your thinking patterns, loadable by any AI ("think like me")
+- **📸 Image Export** — one-click PNG for sharing
+- **🔄 Multi-machine Sync** — private GitHub repo keeps everything in sync
 
-### What's in the portrait?
-
-| Section | Description |
-|---------|-------------|
-| 🧬 **MBTI Type** | Four-axis personality mapped to developer behavior, with per-type color theme |
-| 📊 **Capability Radar** | Six dimensions: depth, breadth, communication, decisions, collaboration, creativity |
-| 🏆 **Developer Rating** | `Legendary` → `Elite` → `Above Average` → `NPC` → `Below Average` → `Inactive` |
-| 🎭 **Famous Match** | 30 figures across tech, science, philosophy & history — from Linus Torvalds to 诸葛亮 |
-| 💬 **Communication** | Language distribution, directness score, keyword cloud |
-| 🗺️ **Tech Domain Map** | Domain breakdown with tool/framework badges |
-| ⏰ **Work Rhythm** | 24-hour activity heatmap and session patterns |
-| 💡 **Signature Quotes** | Your most representative messages |
-
-### Rating philosophy
-
-> Ratings follow a **materialist methodology**: judged by observable output, not by claims or intent. No flattery, no benefit of the doubt. The evidence speaks.
+> Rating philosophy: judged by **observable output**, not claims or intent. No flattery. Evidence speaks.
 
 ---
 
-## 🇨🇳 VibePortrait 是什么？
+## VibePortrait 是什么？
 
-VibePortrait 是一个 **Claude Code / Codex 技能**，它读取你与 AI 的对话历史，生成：
+一个 **Claude Code / Codex 技能**，读取你的对话历史，生成：
 
-1. **🖼️ HTML 人格画像页** — 精美的单文件网页，包含可视化图表、MBTI 类型、能力雷达、开发者评级、名人匹配
-2. **🧠 人格 skill** — 一个 SKILL.md 文件，凝练你的思维方式，让任何 AI 都能"像你一样思考"
-3. **📸 一键导出图片** — PNG 格式，方便在社交媒体分享
-4. **🔄 多机器同步** — 通过 private GitHub 仓库在所有开发机之间同步画像数据
+- **🖼️ HTML 画像页** — 单文件网页，含 MBTI、能力雷达、开发者评级、名人匹配等可视化
+- **🧠 人格 Skill** — 凝练你的思维方式，让 AI 能"像你一样思考"
+- **📸 一键导出图片** — PNG 格式，方便分享
+- **🔄 多机器同步** — 通过 private GitHub 仓库跨机器同步
 
-### 画像包含什么？
-
-| 板块 | 说明 |
-|------|------|
-| 🧬 **MBTI 人格类型** | 四轴映射到开发者行为，16 种 MBTI 类型独立配色 |
-| 📊 **能力雷达** | 六维度：技术深度、技术广度、沟通能力、决策速度、协作能力、创造力 |
-| 🏆 **开发者评级** | `夯爆了` → `夯` → `人上人` → `NPC` → `拉` → `拉完了` |
-| 🎭 **名人匹配** | 30 位人物，横跨科技、科学、哲学与历史——从 Linus Torvalds 到诸葛亮到居里夫人 |
-| 💬 **沟通风格** | 语言分布、直接度评分、高频关键词 |
-| 🗺️ **技术版图** | 领域分布 + 工具/框架徽章 |
-| ⏰ **工作节奏** | 24 小时活跃度热力图与会话模式 |
-| 💡 **经典语录** | 你最有代表性的消息 |
-
-### 评分哲学
-
-> 评分遵循**唯物主义方法论**：以可观察的实际产出为准，不以自我描述、意图或潜力为依据。不谄媚，不推测。证据说话。
+> 评分哲学：以**可观察的实际产出**为准。不谄媚，不推测。证据说话。
 
 ---
 
-## 🚀 Quick Start / 快速开始
+## Quick Start / 快速开始
 
-### Claude Code — Plugin Marketplace
+**Claude Code (marketplace):**
 
-Step 1: Add the marketplace (run this first)
-```
+```bash
+# Step 1: Add marketplace
 /plugin marketplace add dadwadw233/VibePortrait
-```
 
-Step 2: Install the plugin
-```
+# Step 2: Install
 /plugin install vibe-portrait@vibe-portrait
-```
 
-Step 3: Run it
-```
+# Step 3: Run
 /vibe-portrait:vibe-portrait
 ```
 
-### Claude Code — Manual Install / 手动安装
+**Claude Code (manual):**
 
 ```bash
 git clone https://github.com/dadwadw233/VibePortrait.git
 cp -R VibePortrait/skills/vibe-portrait ~/.claude/skills/vibe-portrait
-```
-
-Then / 然后:
-
-```
 /vibe-portrait
 ```
 
-### Codex
+**Codex:**
 
-```
+```bash
 $skill-installer install https://github.com/dadwadw233/VibePortrait/tree/main/skills/vibe-portrait
-```
-
-Then / 然后:
-
-```
-Use $vibe-portrait to generate my developer personality portrait.
+# Then: Use $vibe-portrait to generate my developer personality portrait.
 ```
 
 ---
 
-## ⚡ How It Works / 工作流程
+## How It Works / 工作流程
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│  Step 0   Choose analysis mode                                  │
-│           ⚡ Quick (~200 msgs, low cost)                        │
-│           🔍 Full (all msgs, max accuracy)                      │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 1   Read ~/.claude/history.jsonl                          │
-│           + optional: import from other machines                │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 2   Analyze across 6 dimensions                           │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 3   Compute MBTI type + developer rating + famous match   │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 4   Fill HTML template → vibe-portrait-YYYY-MM-DD.html    │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 5   Generate persona skill → ~/.claude/skills/.../me/     │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 6   Export analysis JSON + auto-screenshot (PNG)          │
-├─────────────────────────────────────────────────────────────────┤
-│  Step 7   Sync to private GitHub repo (optional)                │
-└─────────────────────────────────────────────────────────────────┘
+ ⚡ Quick mode (~200 msgs)  or  🔍 Full mode (all msgs)
+                        │
+          ┌─────────────▼──────────────┐
+          │  Read conversation history  │
+          │  + import from other machines│
+          └─────────────┬──────────────┘
+                        │
+          ┌─────────────▼──────────────┐
+          │  Analyze 6 dimensions       │
+          │  → MBTI · Rating · Famous   │
+          └─────────────┬──────────────┘
+                        │
+          ┌─────────────▼──────────────┐
+          │  Generate outputs           │
+          │  📄 HTML  🧠 Skill  📸 PNG │
+          └─────────────┬──────────────┘
+                        │
+          ┌─────────────▼──────────────┐
+          │  Sync to GitHub (optional)  │
+          └────────────────────────────┘
 ```
 
 ---
 
-## 🎨 MBTI Color Themes / MBTI 配色主题
+## Portrait Contents / 画像内容
 
-Each MBTI type gets its own color palette. / 每种 MBTI 类型拥有独立配色方案。
+| | Section | Description |
+|-|---------|-------------|
+| 🧬 | **MBTI Type** | 4-axis mapping with per-type color theme / 四轴映射 + 16 种独立配色 |
+| 📊 | **Radar** | Depth · Breadth · Communication · Decision · Collaboration · Creativity |
+| 🏆 | **Rating** | `Legendary 夯爆了` → `Elite 夯` → `Above Avg 人上人` → `NPC` → `Below Avg 拉` → `Inactive 拉完了` |
+| 🎭 | **Famous Match** | 30 figures: Torvalds · Carmack · 诸葛亮 · Feynman · Marie Curie · 王阳明 ... |
+| 💬 | **Communication** | Language split, directness, keywords / 语言分布、直接度、关键词 |
+| 🗺️ | **Tech Map** | Domain breakdown + tool badges / 领域分布 + 工具徽章 |
+| ⏰ | **Work Rhythm** | 24h heatmap + session patterns / 24h 热力图 + 会话模式 |
 
-| Group / 组 | Types / 类型 | Colors / 配色 |
-|------------|-------------|--------------|
-| 🧠 Analysts / 分析师 | INTJ · INTP · ENTJ · ENTP | Teal + Slate / 青绿 + 灰蓝 |
-| 💚 Diplomats / 外交官 | INFJ · INFP · ENFJ · ENFP | Emerald + Amber / 翠绿 + 琥珀 |
-| 🛡️ Sentinels / 哨兵 | ISTJ · ISFJ · ESTJ · ESFJ | Cobalt + Steel / 钴蓝 + 钢灰 |
-| 🔥 Explorers / 探险家 | ISTP · ISFP · ESTP · ESFP | Gold + Rose / 金橙 + 玫红 |
+## MBTI Themes / 配色主题
 
----
-
-## 🏆 Rating Scale / 评级体系
-
-| Tier | 中文 | English | Emoji | Description |
-|------|------|---------|-------|-------------|
-| S+ | 夯爆了 | Legendary | 👑 | Multi-domain mastery, architecture-level thinking, builds novel systems |
-| S | 夯 | Elite | 💎 | Deep expertise in 2+ domains, complex problem solver |
-| A | 人上人 | Above Average | ⭐ | Solid skills with clear growth trajectory |
-| B | NPC | NPC | 🤖 | Standard developer — the statistical norm, not a failure |
-| C | 拉 | Below Average | 😅 | Basic tasks are challenging, heavy AI dependency |
-| D | 拉完了 | Inactive | 💀 | Minimal technical interaction |
+| Group | Types | Colors |
+|-------|-------|--------|
+| 🧠 Analysts 分析师 | INTJ · INTP · ENTJ · ENTP | Teal + Slate 青绿灰蓝 |
+| 💚 Diplomats 外交官 | INFJ · INFP · ENFJ · ENFP | Emerald + Amber 翠绿琥珀 |
+| 🛡️ Sentinels 哨兵 | ISTJ · ISFJ · ESTJ · ESFJ | Cobalt + Steel 钴蓝钢灰 |
+| 🔥 Explorers 探险家 | ISTP · ISFP · ESTP · ESFP | Gold + Rose 金橙玫红 |
 
 ---
 
-## 🎭 Famous Matching Database / 名人匹配库
+## Persona Skills / 人格技能
 
-30 figures across 4 categories / 30 位人物，横跨 4 大类：
+VibePortrait generates a skill that captures: thinking patterns, decision framework, communication style, engineering philosophy.
 
-| Category / 类别 | Figures / 人物 |
-|----------------|---------------|
-| 💻 Modern Tech / 现代技术 | Linus Torvalds · John Carmack · Andrej Karpathy · Yann LeCun · DHH · Fabrice Bellard · George Hotz · Grace Hopper · Rich Hickey · Steve Wozniak · Guido van Rossum · Satoshi Nakamoto · Elon Musk · Alan Kay |
-| 🔬 Scientists / 科学家 | Einstein · Feynman · Turing · von Neumann · Marie Curie · Tesla |
-| 📜 Philosophers / 哲学家 | 诸葛亮 · 王阳明 · 墨子 · 老子 · 孙子 · Aristotle · Leonardo da Vinci · Karl Marx |
-| 🛠️ Creators / 创造者 | 鲁班 · Steve Jobs · Claude Shannon · 华罗庚 |
-
----
-
-## 🧠 Persona Skills / 人格技能
-
-After analysis, VibePortrait generates a **persona skill** that captures your: / 分析完成后，VibePortrait 会生成一个**人格技能**，凝练你的：
-
-- 🧩 Thinking patterns / 思维模式
-- ⚖️ Decision framework / 决策框架
-- 💬 Communication style / 沟通风格
-- 🔧 Engineering philosophy / 工程哲学
-
-### Use it / 使用方式
+**No raw chat messages are included** — only abstracted mindset markers.
 
 ```
-think like me                    # Activate your own persona / 激活你自己的人格
-像我一样思考这个问题               # Same in Chinese / 中文版
-think like linus-torvalds        # Use a community persona / 使用社区人格
-像诸葛亮一样设计这个方案           # Think like Zhuge Liang / 像诸葛亮一样思考
-```
+think like me                    # Your persona / 你的人格
+像我一样思考这个问题
+think like linus-torvalds        # Community persona / 社区人格
+像诸葛亮一样设计这个方案
 
-### Directory layout / 目录结构
+install persona from <github-url>  # Install someone's persona / 安装他人人格
+list personas                      # See what you have / 查看已安装
+```
 
 ```
 ~/.claude/skills/vibe-portrait-personas/
-├── me/                  # Your own persona / 你自己的人格
-│   └── SKILL.md
-├── linus-torvalds/      # Community persona / 社区人格
-│   └── SKILL.md
-└── zhuge-liang/         # Community persona / 社区人格
-    └── SKILL.md
+├── me/            ← yours (auto-generated)
+├── jane-doe/      ← installed from GitHub
+└── zhuge-liang/   ← installed from community
 ```
 
 ---
 
-## 🔄 Multi-Machine Sync / 多机器同步
+## Multi-Machine Sync / 多机器同步
 
-VibePortrait uses a **private GitHub repo** to sync across machines. / VibePortrait 通过 **private GitHub 仓库**在多台机器间同步。
+Syncs via **private GitHub repo** using `gh` CLI.
 
 ```
-Machine A                          GitHub (private)                    Machine B
-─────────                          ────────────────                    ─────────
-/vibe-portrait                     my-vibe-portrait/                   /vibe-portrait
-  → analyze local history            ├── me/SKILL.md                     → pull existing data
-  → "create new repo"                ├── analysis/                       → merge with local
-  → push ──────────────────────►     │   ├── macbook.json                → push ─────────►
-                                     │   └── linux-4090.json
-                                     ├── portraits/latest.html
-                                     └── README.md (auto-filled)
+Machine A ──push──► my-vibe-portrait (private) ◄──push── Machine B
+                    ├── me/SKILL.md
+                    ├── analysis/macbook.json
+                    ├── analysis/linux-4090.json
+                    ├── portraits/latest.html
+                    └── README.md (auto-filled)
 ```
 
-Requirements / 需要: `gh` CLI installed and authenticated / 已安装并登录 `gh`
+First run creates the repo. Subsequent runs on any machine pull → merge → push.
 
 ---
 
-## 🔒 Privacy / 隐私
+## Privacy / 隐私
 
-- ✅ Only reads local conversation history / 仅读取本地对话历史
-- ✅ All analysis happens locally in your AI session / 所有分析在本地 AI 会话中完成
-- ✅ API keys, tokens, passwords auto-redacted / 敏感信息自动脱敏
-- ✅ All output files are local — you decide what to share / 所有输出文件均在本地
-- ✅ Portrait repo is private by default / 画像仓库默认 private
-
----
-
-## 📋 Requirements / 环境要求
-
-- Claude Code or Codex with conversation history / Claude Code 或 Codex，且有对话历史
-- At least 20 messages for a meaningful portrait / 至少 20 条消息才能生成有意义的画像
-- A modern browser to view the HTML / 现代浏览器查看 HTML
-- `gh` CLI for multi-machine sync (optional) / `gh` CLI 用于多机器同步（可选）
+- Only reads local `~/.claude/history.jsonl` — never sends data externally
+- API keys, tokens, passwords auto-redacted from all outputs
+- Portrait repo is private by default
+- You control what to share
 
 ---
 
-## 🗺️ Roadmap / 路线图
+## Requirements / 环境要求
 
-- [x] HTML portrait with 10 visual sections / HTML 画像（10 个可视化板块）
-- [x] MBTI-based color themes (16 types) / MBTI 个性化配色（16 种类型）
-- [x] Bilingual support (zh/en) / 中英双语支持
-- [x] Persona skill generation / 人格 skill 生成
-- [x] Multi-machine sync via GitHub / 多机器 GitHub 同步
-- [x] One-click image export / 一键导出图片
-- [x] Materialist rating rubric / 唯物主义评分体系
-- [ ] Community platform — share & download persona skills / 社区平台：分享与下载人格 skill
+- Claude Code or Codex with 20+ messages of history
+- Modern browser for HTML viewing
+- `gh` CLI for multi-machine sync (optional)
+
+---
+
+## Roadmap
+
+- [x] HTML portrait with 10 visual sections + MBTI color themes
+- [x] Persona skill generation (abstracted, no raw quotes)
+- [x] Bilingual (zh/en) + one-click image export
+- [x] Multi-machine sync via private GitHub repo
+- [x] Materialist rating rubric
+- [ ] Community platform for sharing & discovering persona skills
 
 ---
 
