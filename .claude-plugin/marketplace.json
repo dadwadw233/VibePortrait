@@ -13,7 +13,7 @@
       "name": "vibe-portrait",
       "description": "Analyze conversation history and generate a beautiful HTML personality portrait with MBTI type, famous person match, developer rating, and visual charts.",
       "source": "./",
-      "strict": false,
+      "strict": true,
       "skills": [
         "./skills/vibe-portrait"
       ]
