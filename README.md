@@ -1,10 +1,8 @@
 <div align="center">
 
-# 🎭 VibePortrait
+<img src="assets/banner.svg" alt="VibePortrait Banner" width="100%">
 
-**Know yourself as a developer.**
-
-One command. AI analyzes your coding history. Beautiful personality portrait.
+<br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-skill-7C3AED?logo=anthropic&logoColor=white)](https://claude.ai/claude-code)

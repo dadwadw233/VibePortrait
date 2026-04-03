@@ -1,0 +1,254 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="40%" stop-color="#0f0f2a"/>
+      <stop offset="100%" stop-color="#1a0a2e"/>
+    </linearGradient>
+    <!-- Accent gradients -->
+    <linearGradient id="accent1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+    <linearGradient id="accent4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c4b5fd"/>
+      <stop offset="50%" stop-color="#93c5fd"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+    <!-- Glow filters -->
+    <filter id="glow1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bg)"/>
+
+  <!-- Ambient glow blobs -->
+  <ellipse cx="200" cy="200" rx="250" ry="200" fill="#8b5cf6" opacity="0.06" filter="url(#glow1)"/>
+  <ellipse cx="900" cy="150" rx="200" ry="180" fill="#3b82f6" opacity="0.05" filter="url(#glow1)"/>
+  <ellipse cx="600" cy="350" rx="300" ry="150" fill="#14b8a6" opacity="0.04" filter="url(#glow1)"/>
+
+  <!-- Grid pattern (subtle) -->
+  <g opacity="0.03" stroke="#8b5cf6" stroke-width="0.5">
+    <line x1="0" y1="80" x2="1200" y2="80"/>
+    <line x1="0" y1="160" x2="1200" y2="160"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="320" x2="1200" y2="320"/>
+    <line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="400" y1="0" x2="400" y2="400"/>
+    <line x1="600" y1="0" x2="600" y2="400"/>
+    <line x1="800" y1="0" x2="800" y2="400"/>
+    <line x1="1000" y1="0" x2="1000" y2="400"/>
+  </g>
+
+  <!-- ====== LEFT: Branding ====== -->
+
+  <!-- Title -->
+  <text x="80" y="135" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="56" font-weight="800" fill="url(#titleGrad)">VibePortrait</text>
+
+  <!-- Tagline -->
+  <text x="83" y="170" font-family="system-ui, sans-serif" font-size="16" fill="#94a3b8" letter-spacing="0.5">Know yourself as a developer.</text>
+
+  <!-- Feature pills -->
+  <g font-family="system-ui, sans-serif" font-size="11" font-weight="600">
+    <!-- MBTI pill -->
+    <rect x="80" y="195" width="75" height="26" rx="13" fill="#8b5cf6" opacity="0.2"/>
+    <rect x="80" y="195" width="75" height="26" rx="13" stroke="#8b5cf6" stroke-width="1" fill="none" opacity="0.4"/>
+    <text x="96" y="212" fill="#c4b5fd">16 MBTI</text>
+
+    <!-- Rating pill -->
+    <rect x="165" y="195" width="72" height="26" rx="13" fill="#f59e0b" opacity="0.2"/>
+    <rect x="165" y="195" width="72" height="26" rx="13" stroke="#f59e0b" stroke-width="1" fill="none" opacity="0.4"/>
+    <text x="178" y="212" fill="#fcd34d">6 Tiers</text>
+
+    <!-- Famous pill -->
+    <rect x="247" y="195" width="100" height="26" rx="13" fill="#3b82f6" opacity="0.2"/>
+    <rect x="247" y="195" width="100" height="26" rx="13" stroke="#3b82f6" stroke-width="1" fill="none" opacity="0.4"/>
+    <text x="260" y="212" fill="#93c5fd">30 Figures</text>
+
+    <!-- Persona pill -->
+    <rect x="357" y="195" width="88" height="26" rx="13" fill="#10b981" opacity="0.2"/>
+    <rect x="357" y="195" width="88" height="26" rx="13" stroke="#10b981" stroke-width="1" fill="none" opacity="0.4"/>
+    <text x="370" y="212" fill="#6ee7b7">Persona AI</text>
+  </g>
+
+  <!-- Subtext -->
+  <text x="83" y="260" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">One command. AI reads your history.</text>
+  <text x="83" y="280" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Beautiful portrait + persona skill.</text>
+
+  <!-- Install hint -->
+  <rect x="80" y="305" width="300" height="34" rx="8" fill="#1e1e3a" stroke="#334155" stroke-width="1"/>
+  <text x="95" y="326" font-family="'SF Mono', 'Fira Code', monospace" font-size="12" fill="#94a3b8">
+    <tspan fill="#64748b">$</tspan> /vibe-portrait
+  </text>
+
+  <!-- ====== RIGHT: Portrait preview cards ====== -->
+
+  <!-- Card 1: MBTI type (teal theme - analyst) -->
+  <g transform="translate(560, 30)" filter="url(#cardShadow)">
+    <rect width="185" height="105" rx="12" fill="#111827" opacity="0.9"/>
+    <rect width="185" height="105" rx="12" stroke="#14b8a6" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1" text-transform="uppercase">PERSONALITY TYPE</text>
+    <text x="14" y="62" font-family="system-ui, sans-serif" font-size="36" font-weight="800" fill="url(#accent2)">INTJ</text>
+    <!-- Mini axis bars -->
+    <rect x="14" y="76" width="155" height="4" rx="2" fill="#1e293b"/>
+    <rect x="14" y="76" width="54" height="4" rx="2" fill="url(#accent2)" opacity="0.7"/>
+    <rect x="14" y="86" width="155" height="4" rx="2" fill="#1e293b"/>
+    <rect x="14" y="86" width="127" height="4" rx="2" fill="url(#accent2)" opacity="0.7"/>
+  </g>
+
+  <!-- Card 2: Rating (gold badge) -->
+  <g transform="translate(560, 150)" filter="url(#cardShadow)">
+    <rect width="185" height="80" rx="12" fill="#111827" opacity="0.9"/>
+    <rect width="185" height="80" rx="12" stroke="#f59e0b" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1">DEVELOPER RATING</text>
+    <text x="14" y="55" font-family="system-ui, sans-serif" font-size="24" font-weight="800" fill="#fcd34d">Legendary</text>
+    <!-- Tier pips -->
+    <g transform="translate(14, 65)">
+      <rect x="0" y="0" width="22" height="5" rx="2.5" fill="url(#accent3)" opacity="0.8"/>
+      <rect x="26" y="0" width="22" height="5" rx="2.5" fill="url(#accent3)" opacity="0.8"/>
+      <rect x="52" y="0" width="22" height="5" rx="2.5" fill="url(#accent3)" opacity="0.8"/>
+      <rect x="78" y="0" width="22" height="5" rx="2.5" fill="url(#accent3)" opacity="0.8"/>
+      <rect x="104" y="0" width="22" height="5" rx="2.5" fill="url(#accent3)" opacity="0.8"/>
+      <rect x="130" y="0" width="22" height="5" rx="2.5" fill="url(#accent3)" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- Card 3: Radar chart (abstract) -->
+  <g transform="translate(770, 30)" filter="url(#cardShadow)">
+    <rect width="185" height="165" rx="12" fill="#111827" opacity="0.9"/>
+    <rect width="185" height="165" rx="12" stroke="#8b5cf6" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1">CAPABILITY RADAR</text>
+    <!-- Stylized radar hexagon -->
+    <g transform="translate(92, 100)">
+      <!-- Outer ring -->
+      <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" fill="none" stroke="#1e293b" stroke-width="1"/>
+      <polygon points="0,-35 30,-17.5 30,17.5 0,35 -30,17.5 -30,-17.5" fill="none" stroke="#1e293b" stroke-width="0.8"/>
+      <polygon points="0,-20 17,-10 17,10 0,20 -17,10 -17,-10" fill="none" stroke="#1e293b" stroke-width="0.6"/>
+      <!-- Data polygon -->
+      <polygon points="0,-44 38,-15 30,22 -5,40 -40,18 -35,-20" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1.5"/>
+      <!-- Data points -->
+      <circle cx="0" cy="-44" r="3" fill="#8b5cf6"/>
+      <circle cx="38" cy="-15" r="3" fill="#8b5cf6"/>
+      <circle cx="30" cy="22" r="3" fill="#8b5cf6"/>
+      <circle cx="-5" cy="40" r="3" fill="#8b5cf6"/>
+      <circle cx="-40" cy="18" r="3" fill="#8b5cf6"/>
+      <circle cx="-35" cy="-20" r="3" fill="#8b5cf6"/>
+      <!-- Labels -->
+      <text x="0" y="-55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Depth</text>
+      <text x="55" y="-12" text-anchor="start" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Breadth</text>
+      <text x="45" y="30" text-anchor="start" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Comm</text>
+      <text x="0" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Decision</text>
+      <text x="-55" y="26" text-anchor="end" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Collab</text>
+      <text x="-52" y="-16" text-anchor="end" font-family="system-ui, sans-serif" font-size="8" fill="#94a3b8">Creative</text>
+    </g>
+  </g>
+
+  <!-- Card 4: Famous match -->
+  <g transform="translate(770, 210)" filter="url(#cardShadow)">
+    <rect width="185" height="72" rx="12" fill="#111827" opacity="0.9"/>
+    <rect width="185" height="72" rx="12" stroke="#10b981" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1">FAMOUS MATCH</text>
+    <text x="14" y="52" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="url(#accent4)">John Carmack</text>
+  </g>
+
+  <!-- Card 5: Communication (bottom right) -->
+  <g transform="translate(560, 245)" filter="url(#cardShadow)">
+    <rect width="185" height="72" rx="12" fill="#111827" opacity="0.9"/>
+    <rect width="185" height="72" rx="12" stroke="#3b82f6" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1">COMMUNICATION</text>
+    <!-- Mini donut representation -->
+    <circle cx="40" cy="52" r="14" fill="none" stroke="#1e293b" stroke-width="5"/>
+    <circle cx="40" cy="52" r="14" fill="none" stroke="#8b5cf6" stroke-width="5" stroke-dasharray="57 88" stroke-dashoffset="0" transform="rotate(-90 40 52)"/>
+    <circle cx="40" cy="52" r="14" fill="none" stroke="#3b82f6" stroke-width="5" stroke-dasharray="26 88" stroke-dashoffset="-57" transform="rotate(-90 40 52)"/>
+    <!-- Labels -->
+    <text x="68" y="48" font-family="system-ui, sans-serif" font-size="10" fill="#c4b5fd">65% Chinese</text>
+    <text x="68" y="62" font-family="system-ui, sans-serif" font-size="10" fill="#93c5fd">30% English</text>
+  </g>
+
+  <!-- Card 6: Work rhythm heatmap (far right bottom) -->
+  <g transform="translate(980, 30)" filter="url(#cardShadow)">
+    <rect width="185" height="105" rx="12" fill="#111827" opacity="0.9"/>
+    <rect width="185" height="105" rx="12" stroke="#8b5cf6" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1">WORK RHYTHM</text>
+    <!-- Mini heatmap grid (24 cells) -->
+    <g transform="translate(14, 36)">
+      <rect x="0" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.05"/>
+      <rect x="8" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.05"/>
+      <rect x="16" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.1"/>
+      <rect x="24" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.15"/>
+      <rect x="32" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.2"/>
+      <rect x="40" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.1"/>
+      <rect x="48" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.05"/>
+      <rect x="56" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.05"/>
+      <rect x="64" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.05"/>
+      <rect x="72" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.3"/>
+      <rect x="80" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.65"/>
+      <rect x="88" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.85"/>
+      <rect x="96" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.75"/>
+      <rect x="104" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.5"/>
+      <rect x="112" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.9"/>
+      <rect x="120" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.85"/>
+      <rect x="128" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.7"/>
+      <rect x="136" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.6"/>
+      <rect x="144" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.4"/>
+      <rect x="152" y="0" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.3"/>
+      <!-- Second row -->
+      <rect x="0" y="10" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.5"/>
+      <rect x="8" y="10" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.3"/>
+      <rect x="16" y="10" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.15"/>
+      <rect x="24" y="10" width="6" height="6" rx="1" fill="#8b5cf6" opacity="0.08"/>
+    </g>
+    <!-- Time labels -->
+    <text x="14" y="66" font-family="system-ui, sans-serif" font-size="8" fill="#475569">0h</text>
+    <text x="78" y="66" font-family="system-ui, sans-serif" font-size="8" fill="#475569">12h</text>
+    <text x="152" y="66" font-family="system-ui, sans-serif" font-size="8" fill="#475569">23h</text>
+    <text x="14" y="85" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Night owl with</text>
+    <text x="14" y="99" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">afternoon peaks</text>
+  </g>
+
+  <!-- Card 7: Signature quote -->
+  <g transform="translate(980, 150)" filter="url(#cardShadow)">
+    <rect width="185" height="80" rx="12" fill="#111827" opacity="0.9"/>
+    <rect width="185" height="80" rx="12" stroke="#8b5cf6" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <!-- Quote border accent -->
+    <rect x="14" y="14" width="3" height="52" rx="1.5" fill="url(#accent1)"/>
+    <text x="24" y="30" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0" font-style="italic">"The harness matters</text>
+    <text x="24" y="44" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0" font-style="italic"> more than the prompt."</text>
+    <text x="24" y="62" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">On engineering philosophy</text>
+  </g>
+
+  <!-- Persona skill card hint -->
+  <g transform="translate(980, 245)" filter="url(#cardShadow)">
+    <rect width="185" height="72" rx="12" fill="#111827" opacity="0.9"/>
+    <rect width="185" height="72" rx="12" stroke="#10b981" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <text x="14" y="24" font-family="system-ui, sans-serif" font-size="9" fill="#64748b" letter-spacing="1">PERSONA SKILL</text>
+    <text x="14" y="46" font-family="'SF Mono', 'Fira Code', monospace" font-size="10" fill="#6ee7b7">"think like me"</text>
+    <text x="14" y="62" font-family="'SF Mono', 'Fira Code', monospace" font-size="10" fill="#6ee7b7">"像我一样思考"</text>
+  </g>
+
+  <!-- Bottom fade -->
+  <rect y="370" width="1200" height="30" fill="url(#bg)" opacity="0.8"/>
+</svg>
