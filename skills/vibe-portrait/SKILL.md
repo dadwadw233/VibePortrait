@@ -53,9 +53,9 @@ Check and read from every source that exists:
 | Claude Code history | `~/.claude/history.jsonl` | `display` |
 | Claude Code projects | `~/.claude/projects/**/*.jsonl` | `display` |
 | Codex history | `~/.codex/history.jsonl` | `text` (also has `ts` unix timestamp) |
-| Codex sessions | `~/.codex/sessions/**/*.jsonl` | filter `type=response_item` + `payload.role=user` → `payload.content[0].text` |
+| Codex sessions | `~/.codex/sessions/YYYY/MM/DD/rollout-*.jsonl` | filter `type=response_item` + `payload.role=user` → iterate `payload.content[]`, take items where `text` does NOT start with `<` (skip system-injected `<environment_context>`, `<permissions>` etc.) |
 
-Merge all messages into one pool before sampling. Use `ts` timestamps (Codex) for chronological sorting when available.
+Merge all messages from all sources into one pool before sampling. Use `ts` timestamps (Codex history) or `timestamp` (Codex sessions) for chronological sorting when available.
 
 ### 1b: Multi-machine sync via Git repo
 
