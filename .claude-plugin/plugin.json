@@ -1,7 +1,7 @@
 {
   "name": "vibe-portrait",
   "description": "Analyze your AI conversation history and generate a beautiful developer personality portrait with MBTI type, famous person match, and developer rating.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "dadwadw233",
     "email": "dadwadw233@users.noreply.github.com"
