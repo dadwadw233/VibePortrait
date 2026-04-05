@@ -8,6 +8,9 @@
 [![Claude Code](https://img.shields.io/badge/Claude_Code-skill-14b8a6?logo=anthropic&logoColor=white)](https://claude.ai/claude-code)
 [![Codex](https://img.shields.io/badge/Codex-skill-10a37f?logo=openai&logoColor=white)](https://github.com/openai/codex)
 [![GitHub stars](https://img.shields.io/github/stars/dadwadw233/VibePortrait?style=social)](https://github.com/dadwadw233/VibePortrait)
+[![Release](https://img.shields.io/github/v/release/dadwadw233/VibePortrait?color=14b8a6)](https://github.com/dadwadw233/VibePortrait/releases)
+
+**Your AI conversations already know who you are. VibePortrait makes it visible.**
 
 [English](#what-is-vibeportrait) · [中文](#vibeportrait-是什么)
 
@@ -15,14 +18,47 @@
 
 ---
 
+### ⚡ 30-Second Demo
+
+```bash
+# Install (one time)
+cp -R VibePortrait/skills/vibe-portrait ~/.claude/skills/vibe-portrait
+
+# Run
+/vibe-portrait
+```
+
+**Input:** Your `~/.claude/history.jsonl` + `~/.codex/history.jsonl` (read-only, never sent anywhere)
+
+**Output:**
+
+| Output | What you get |
+|--------|-------------|
+| 📄 `vibe-portrait.html` | Beautiful portrait page — open in browser, export as PNG |
+| 🧠 `~/.claude/skills/.../me/` | Persona skill — say "think like me" in any future conversation |
+| 🔄 `my-vibe-portrait` repo | Private GitHub repo syncing portraits across all your machines |
+
+<details>
+<summary><b>📸 What the portrait looks like (click to expand)</b></summary>
+
+<br>
+
+<img src="assets/social-preview.png" alt="VibePortrait Preview" width="100%">
+
+*The portrait includes: MBTI type with per-type color theme · 6-axis capability radar · developer rating (夯爆了→拉完了) · 3-dimension famous match · communication style analysis · tech domain map · work rhythm heatmap · and more.*
+
+</details>
+
+---
+
 ## What is VibePortrait?
 
 A skill for **Claude Code** and **Codex**. It reads your conversation history and generates:
 
-- **🖼️ HTML Portrait** — self-contained page with MBTI type, radar chart, developer rating, famous match, and more
-- **🧠 Persona Skill** — a SKILL.md capturing your thinking patterns, loadable by any AI ("think like me")
-- **📸 Image Export** — one-click PNG for sharing
-- **🔄 Multi-machine Sync** — private GitHub repo keeps everything in sync
+- **🖼️ HTML Portrait** — MBTI type (16 color themes), radar chart, developer rating, 3D famous match, communication style, tech domain map, work rhythm heatmap
+- **🧠 Persona Skill** — multi-file skill capturing your thinking patterns, decision framework, engineering philosophy — loadable by any AI ("think like me")
+- **📸 Image Export** — one-click PNG for sharing on social media
+- **🔄 Multi-machine Sync** — private GitHub repo keeps everything in sync across all your dev machines
 
 > Rating philosophy: judged by **observable output**, not claims or intent. No flattery. Evidence speaks.
 
